@@ -16,16 +16,28 @@ public class Solution {
         ListNode first = headA;
         ListNode second = headB;
 
-        while(first != null){
-            set.add(first);
-            first = first.next;
+        // while(first != null){
+        //     set.add(first);
+        //     first = first.next;
+        // }
+        // while(second != null){
+        //     if(set.contains(second)){
+        //         return second;
+        //     }
+        //     second = second.next;
+        // }
+        // return null;
+
+        while(first != second){
+            if(first == null){
+                first = headB;
+            }else first = first.next;
+
+            if(second == null){
+                second = headA;
+            }else second = second.next;
+
         }
-        while(second != null){
-            if(set.contains(second)){
-                return second;
-            }
-            second = second.next;
-        }
-        return null;
+        return first;
     }
 }
