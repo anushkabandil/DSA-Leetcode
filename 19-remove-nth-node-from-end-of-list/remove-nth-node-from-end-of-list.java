@@ -29,9 +29,10 @@ class Solution {
         for(int i=0; i< length-n-1; i++){
             last = last.next;
         }
-        if(last != null && last.next != null){
-             last.next = last.next.next;
-        }
+        last.next = last.next.next;
+        // if(last != null && last.next != null){
+        //      last.next = last.next.next;
+        // }
         return head;
         
     }
