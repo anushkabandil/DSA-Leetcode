@@ -1,16 +1,20 @@
 class NumArray {
-    int [] nums;
-    public NumArray(int[] nums) {
-         // Now the object "knows" your numbers
-        this.nums = nums;
+     int[] pre; 
+    public NumArray(int[] nums) 
+    {
+        int n=nums.length;  
+        pre = new int[n];
+        pre[0]=nums[0];
+        for(int i=1;i<n;i++)
+        {
+            pre[i]=nums[i]+pre[i-1];
+        }
     }
     
-    public int sumRange(int left, int right) {
-        int sum =0;
-       for(int i = left; i<=right; i++){
-            sum += nums[i];
-       }
-        return sum;
+    public int sumRange(int left, int right) 
+    {
+        if(left==0) return pre[right];
+        return pre[right]-pre[left-1];
     }
 }
 
