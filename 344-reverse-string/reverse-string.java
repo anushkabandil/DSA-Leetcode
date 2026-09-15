@@ -1,18 +1,19 @@
 class Solution {
     public void reverseString(char[] s) {
 
-      recursion(s, 0, s.length - 1 );
+        solve( s, 0, s.length - 1);
     }
 
-    public void recursion(char[] s, int low, int high){
-    
-        if( low < high){
-            char temp = s[low];
-            s[low] = s[high];
-            s[high] = temp;
+    public void solve( char [] s, int low, int high){
 
-            recursion(s, low + 1, high - 1);
-        }
-        else return;
+        int len = high - low + 1;
+        if( len == 0 || len == 1) return;
+
+        char temp = s[low];
+        s[low] = s[high];
+        s[high] = temp;
+
+        solve( s, low + 1, high - 1);
+
     }
 }
